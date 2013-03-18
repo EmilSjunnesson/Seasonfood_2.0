@@ -107,8 +107,7 @@ public class GUI extends JFrame {
 				for (i = 0; i < buttons.length; i++) {
 
 					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
-							new ImageIcon(URLImage.getURLImage(URLArray.get(i),
-									buttonWidth, buttonHeight)));
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
 
@@ -353,8 +352,7 @@ public class GUI extends JFrame {
 				for (i = 0; i < buttons.length; i++) {
 
 					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
-							new ImageIcon(URLImage.getURLImage(URLArray.get(i),
-									buttonWidth, buttonHeight)));
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
 

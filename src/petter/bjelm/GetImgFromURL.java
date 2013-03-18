@@ -13,7 +13,7 @@ public class GetImgFromURL {
 
 	};
 
-	public BufferedImage getURLImage(String imgURL, int imgX, int imgY) {
+	public BufferedImage getURLImage(String imgURL) {
 		BufferedImage image = null;
 		try {
 			URL url = new URL(imgURL);
