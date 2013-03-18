@@ -1,5 +1,6 @@
 package petter.bjelm;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -105,8 +106,11 @@ public class GUI extends JFrame {
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(anArray.get(i).replace('_', ' '), new ImageIcon(
-							URLImage.getURLImage(URLArray.get(i))));
+					buttons[i] = new JButton(
+							anArray.get(i).replace('_', ' '),
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
+					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
+					buttons[i].setForeground(Color.WHITE);
 
 					if (i == lastRow) {
 						rowY = rowY + buttonHeight;
@@ -354,7 +358,11 @@ public class GUI extends JFrame {
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(anArray.get(i).replace('_', ' '));
+					buttons[i] = new JButton(
+							anArray.get(i).replace('_', ' '),
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
+					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
+					buttons[i].setForeground(Color.WHITE);
 
 					if (i == lastRow) {
 						rowY = rowY + buttonHeight;
