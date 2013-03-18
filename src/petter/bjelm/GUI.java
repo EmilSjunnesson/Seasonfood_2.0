@@ -11,13 +11,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
 
 public class GUI extends JFrame {
 
@@ -90,14 +88,12 @@ public class GUI extends JFrame {
 				try {
 					anArray = data.getArray();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 				try {
 					URLArray = imageParse.getURLArray("Skaldjur");
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -109,7 +105,8 @@ public class GUI extends JFrame {
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(anArray.get(i).replace('_', ' '));
+					buttons[i] = new JButton(anArray.get(i).replace('_', ' '), new ImageIcon(
+							URLImage.getURLImage(URLArray.get(i))));
 
 					if (i == lastRow) {
 						rowY = rowY + buttonHeight;
@@ -159,9 +156,9 @@ public class GUI extends JFrame {
 
 		});
 
-		String[] patternExamples = { "Välj månad", "Januari", "Februari", "Mars", "April",
-				"Maj", "Juni", "Juli", "Augusti", "September", "Oktober",
-				"November", "December", };
+		String[] patternExamples = { "Välj månad", "Januari", "Februari",
+				"Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September",
+				"Oktober", "November", "December", };
 
 		comboBox = new JComboBox(patternExamples);
 		comboBox.addActionListener(new ActionListener() {
@@ -229,11 +226,11 @@ public class GUI extends JFrame {
 			}
 		});
 
-		JButton buttonTwo = new JButton("Grönsaker");
-		buttonTwo.setHorizontalTextPosition(SwingConstants.CENTER);
-		buttonTwo
-				.setIcon(new ImageIcon(
+		JButton buttonTwo = new JButton(
+				"Grönsaker",
+				new ImageIcon(
 						URLImage.getURLImage("http://upload.wikimedia.org/wikipedia/commons/6/6f/Cabbage_and_cross_section_on_white.jpg")));
+		buttonTwo.setHorizontalTextPosition(SwingConstants.CENTER);
 		panel = new JPanel();
 		panel.setBorder(null);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
