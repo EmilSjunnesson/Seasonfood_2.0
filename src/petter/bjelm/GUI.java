@@ -36,8 +36,8 @@ public class GUI extends JFrame {
 	private JComboBox comboBox;
 	private GetImgFromURL URLImage;
 
-	private int buttonWidth = 100;
-	private int buttonHeight = 100;
+	private int buttonWidth = 150;
+	private int buttonHeight = 150;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -106,9 +106,9 @@ public class GUI extends JFrame {
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(
-							anArray.get(i).replace('_', ' '),
-							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
+					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i),
+									buttonWidth, buttonHeight)));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
 
@@ -230,10 +230,7 @@ public class GUI extends JFrame {
 			}
 		});
 
-		JButton buttonTwo = new JButton(
-				"Grönsaker",
-				new ImageIcon(
-						URLImage.getURLImage("http://upload.wikimedia.org/wikipedia/commons/6/6f/Cabbage_and_cross_section_on_white.jpg")));
+		JButton buttonTwo = new JButton("Grönsaker");
 		buttonTwo.setHorizontalTextPosition(SwingConstants.CENTER);
 		panel = new JPanel();
 		panel.setBorder(null);
@@ -358,9 +355,9 @@ public class GUI extends JFrame {
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(
-							anArray.get(i).replace('_', ' '),
-							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
+					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i),
+									buttonWidth, buttonHeight)));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
 
