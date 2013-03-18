@@ -62,14 +62,9 @@ public class GUI extends JFrame {
 		URLArray = new ArrayList<String>();
 		URLImage = new GetImgFromURL();
 		imageParse = new ImageParsing();
-		data = new GetCategory("","");
-		
-//		try {
-//			data = new GetCategory("", "");
-//		} catch (Exception e2) {
-//			// TODO Auto-generated catch block
-//			e2.printStackTrace();
-//		}
+		data = new GetCategory();
+		data.setDate(imageParse.getCurrDate());
+		imageParse.setDate(imageParse.getCurrDate());
 
 		JButton button = new JButton("Skaldjur");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -209,7 +204,7 @@ public class GUI extends JFrame {
 					break;
 				case 8:
 					data.setDate("08");
-					imageParse.setDate("089");
+					imageParse.setDate("08");
 					break;
 				case 9:
 					data.setDate("09");

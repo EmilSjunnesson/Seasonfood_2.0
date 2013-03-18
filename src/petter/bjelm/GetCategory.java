@@ -36,53 +36,8 @@ public class GetCategory {
 	NodeList nList;
 	Element eElement;
 
-	public GetCategory(String sort, String date) {
-
-		chosenSort = sort;
-		chosenDate = date;
-
-//		url = new URL(
-//				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
-//						+ chosenSort + "]][[I+säsong::1912-" + chosenDate
-//						+ "-11]]|?bild");
-//		conn = url.openConnection();
-//
-//		factory = DocumentBuilderFactory.newInstance();
-//		builder = factory.newDocumentBuilder();
-//		doc = builder.parse(conn.getInputStream());
-//
-//		tfactory = TransformerFactory.newInstance();
-//		xform = tfactory.newTransformer();
-//
-//		// that’s the default xform; use a stylesheet to get a real one
-//		//xform.transform(new DOMSource(doc), new StreamResult(System.out));
-//
-//		doc.getDocumentElement().normalize();
-//
-//		// System.out.println(doc);
-//
-//		nList = doc.getElementsByTagName("results");
-//
-//		for (int temp = 0; temp < nList.getLength(); temp++) {
-//
-//			nNode = nList.item(temp);
-//
-//			// System.out.println("\nCurrent Element :" + nNode.getNodeName());
-//
-//			for (int temp2 = 0; temp2 < nNode.getChildNodes().getLength(); temp2++) {
-//
-//				// System.out.println(nNode.getChildNodes().item(temp2).getNodeName());
-//
-//			}
-//
-//			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-//
-//				eElement = (Element) nNode;
-//
-//			}
-//
-//		}
-
+	public GetCategory() {
+		
 	}
 
 	public void setCategory(String name) {
@@ -116,7 +71,7 @@ public class GetCategory {
 		xform = tfactory.newTransformer();
 
 		// that’s the default xform; use a stylesheet to get a real one
-		//xform.transform(new DOMSource(doc), new StreamResult(System.out));
+		// xform.transform(new DOMSource(doc), new StreamResult(System.out));
 
 		doc.getDocumentElement().normalize();
 
