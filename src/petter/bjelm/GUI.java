@@ -36,8 +36,8 @@ public class GUI extends JFrame {
 	private JComboBox comboBox;
 	private GetImgFromURL URLImage;
 
-	private int buttonWidth = 150;
-	private int buttonHeight = 150;
+	private int buttonWidth = 100;
+	private int buttonHeight = 100;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -75,7 +75,7 @@ public class GUI extends JFrame {
 				buttonCounter = 0;
 				data.setCategory("Skaldjur");
 				// buttons = new JButton[0];
-
+				
 				if (buttons != null) {
 					for (i = 0; i < buttons.length; i++) {
 
@@ -126,12 +126,12 @@ public class GUI extends JFrame {
 						buttonCounter = 0;
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10), rowY,
+								(buttonWidth * buttonCounter), rowY,
 								buttonWidth, buttonHeight);
 					} else {
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10), rowY,
+								(buttonWidth * buttonCounter + 10*i), rowY,
 								buttonWidth, buttonHeight);
 					}
 
@@ -320,9 +320,8 @@ public class GUI extends JFrame {
 				rowX = 30;
 				buttonCounter = 0;
 				data.setCategory("Grönsaker");
-
 				// buttons = new JButton[0];
-
+				
 				if (buttons != null) {
 					for (i = 0; i < buttons.length; i++) {
 
@@ -375,12 +374,12 @@ public class GUI extends JFrame {
 						buttonCounter = 0;
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10), rowY,
+								(buttonWidth * buttonCounter), rowY,
 								buttonWidth, buttonHeight);
 					} else {
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10), rowY,
+								(buttonWidth * buttonCounter + 10*i), rowY,
 								buttonWidth, buttonHeight);
 					}
 

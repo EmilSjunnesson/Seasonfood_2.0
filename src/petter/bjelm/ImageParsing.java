@@ -95,6 +95,7 @@ public class ImageParsing {
 		
 		type = kat;
 		
+		imgNamesArray.clear();
 		imgURLArray.clear();
 		
 		parse();
