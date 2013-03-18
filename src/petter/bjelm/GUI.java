@@ -379,7 +379,7 @@ public class GUI extends JFrame {
 					} else {
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10*i), rowY,
+								(buttonWidth * buttonCounter + 10*buttonCounter), rowY,
 								buttonWidth, buttonHeight);
 					}
 

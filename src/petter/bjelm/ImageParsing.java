@@ -9,11 +9,7 @@ import java.util.Calendar;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -66,7 +62,7 @@ public class ImageParsing {
 		URL url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=query&titles="
 						+ imgText.replace(" ", "%20")
-						+ "&prop=imageinfo&iiprop=url&iiurlwidth=160");
+						+ "&prop=imageinfo&iiprop=url&iiurlwidth=150");
 		URLConnection conn = url.openConnection();
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
