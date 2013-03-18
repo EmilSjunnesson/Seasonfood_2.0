@@ -24,7 +24,6 @@ import org.xml.sax.SAXException;
 public class ImageParsing {
 
 	private String monthText = "00";
-	private String dayText = "00";
 	private String type = "Grönsaker";
 	private ArrayList<String> imgNamesArray = new ArrayList<String>();
 	private ArrayList<String> imgURLArray = new ArrayList<String>();
@@ -36,20 +35,15 @@ public class ImageParsing {
 	}
 
 	// * Ändrar URL till dagens datum */
-	public void getCurrDate() {
+	public String getCurrDate() {
 		Calendar cal = Calendar.getInstance();
-		int day = cal.get(Calendar.DAY_OF_MONTH);
-		if (day < 10) {
-			dayText = "0" + Integer.toString(day);
-		} else {
-			dayText = Integer.toString(day);
-		}
 		int month = cal.get(Calendar.MONTH) + 1;
 		if (month < 10) {
 			monthText = "0" + Integer.toString(month);
 		} else {
 			monthText = Integer.toString(month);
 		}
+		return monthText;
 	}
 
 	public void parse() throws IOException, ParserConfigurationException,
@@ -57,7 +51,7 @@ public class ImageParsing {
 		URL url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
 						+ type + "]][[I+säsong+Z3::1912-" + monthText + "-"
-						+ 11 + "]]|?bild");
+						+ "15" + "]]|?bild");
 		URLConnection conn = url.openConnection();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
@@ -102,9 +96,6 @@ public class ImageParsing {
 		type = kat;
 		
 		imgURLArray.clear();
-		
-		//getCurrDate();
-		
 		
 		parse();
 

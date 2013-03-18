@@ -24,7 +24,7 @@ public class GetCategory {
 
 	public String chosenSort;
 	public String chosenDate;
-	public ArrayList<String> sortArray;
+	public ArrayList<String> sortArray = new ArrayList<String>();
 	public URL url;
 	URLConnection conn;
 	DocumentBuilderFactory factory;
@@ -36,12 +36,10 @@ public class GetCategory {
 	NodeList nList;
 	Element eElement;
 
-	public GetCategory(String sort, String date) throws IOException,
-			ParserConfigurationException, SAXException, TransformerException {
+	public GetCategory(String sort, String date) {
 
 		chosenSort = sort;
 		chosenDate = date;
-		sortArray = new ArrayList<String>();
 
 //		url = new URL(
 //				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
@@ -107,7 +105,7 @@ public class GetCategory {
 		url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
 						+ chosenSort + "]][[I+säsong::1912-" + chosenDate
-						+ "-11]]|?bild");
+						+ "-15]]|?bild");
 		conn = url.openConnection();
 
 		factory = DocumentBuilderFactory.newInstance();

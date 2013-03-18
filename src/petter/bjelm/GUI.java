@@ -82,13 +82,14 @@ public class GUI extends JFrame {
 		URLArray = new ArrayList<String>();
 		URLImage = new GetImgFromURL();
 		imageParse = new ImageParsing();
-
-		try {
-			data = new GetCategory("", "");
-		} catch (Exception e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+		data = new GetCategory("","");
+		
+//		try {
+//			data = new GetCategory("", "");
+//		} catch (Exception e2) {
+//			// TODO Auto-generated catch block
+//			e2.printStackTrace();
+//		}
 
 		JButton button = new JButton("Skaldjur");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -183,7 +184,7 @@ public class GUI extends JFrame {
 
 		});
 
-		String[] patternExamples = { "Januari", "Februari", "Mars", "April",
+		String[] patternExamples = { "Välj månad", "Januari", "Februari", "Mars", "April",
 				"Maj", "Juni", "Juli", "Augusti", "September", "Oktober",
 				"November", "December", };
 
@@ -195,53 +196,56 @@ public class GUI extends JFrame {
 
 				switch (index) {
 				case 0:
+					data.setDate(imageParse.getCurrDate());
+					imageParse.setDate(imageParse.getCurrDate());
+					break;
+				case 1:
 					data.setDate("01");
 					imageParse.setDate("01");
 					break;
-				case 1:
+				case 2:
 					data.setDate("02");
 					imageParse.setDate("02");
 					break;
-				case 2:
+				case 3:
 					data.setDate("03");
 					imageParse.setDate("03");
 					break;
-				case 3:
+				case 4:
 					data.setDate("04");
 					imageParse.setDate("04");
 					break;
-				case 4:
+				case 5:
 					data.setDate("05");
 					imageParse.setDate("05");
 					break;
-				case 5:
+				case 6:
 					data.setDate("06");
 					imageParse.setDate("06");
 					break;
-				case 6:
+				case 7:
 					data.setDate("07");
 					imageParse.setDate("07");
 					break;
-				case 7:
-					data.setDate("08");
-					imageParse.setDate("08");
-					break;
 				case 8:
+					data.setDate("08");
+					imageParse.setDate("089");
+					break;
+				case 9:
 					data.setDate("09");
 					imageParse.setDate("09");
 					break;
-				case 9:
+				case 10:
 					data.setDate("10");
 					imageParse.setDate("10");
 					break;
-				case 10:
+				case 11:
 					data.setDate("11");
 					imageParse.setDate("11");
 					break;
-				case 11:
+				case 12:
 					data.setDate("12");
 					imageParse.setDate("12");
-					break;
 				default:
 					data.setDate("00");
 					imageParse.setDate("00");
