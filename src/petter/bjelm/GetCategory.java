@@ -57,7 +57,7 @@ public class GetCategory {
 
 		url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
-						+ chosenSort + "]][[I+säsong::1912-" + chosenDate
+						+ chosenSort + "]][[I+säsong+Z3::1912-" + chosenDate
 						+ "-15]]|?bild");
 		conn = url.openConnection();
 
@@ -73,7 +73,7 @@ public class GetCategory {
 
 		doc.getDocumentElement().normalize();
 
-		// System.out.println(doc);
+		//System.out.println(doc);
 
 		nList = doc.getElementsByTagName("results");
 

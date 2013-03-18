@@ -68,7 +68,7 @@ public class GUI extends JFrame {
 		JButton button = new JButton("Skaldjur");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg1) {
 				rowY = 0;
 				lastRow = setButtonsPerRows;
 				rowX = 30;
@@ -335,15 +335,13 @@ public class GUI extends JFrame {
 				try {
 					anArray = data.getArray();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 				try {
 					URLArray = imageParse.getURLArray("Grönsaker");
-				} catch (Exception e6) {
-					// TODO Auto-generated catch block
-					e6.printStackTrace();
+				} catch (Exception e1) {
+					e1.printStackTrace();
 				}
 
 				for (int i = 0; i < URLArray.size(); i++) {
