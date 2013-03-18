@@ -66,7 +66,7 @@ public class ImageParsing {
 		URL url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=query&titles="
 						+ imgText.replace(" ", "%20")
-						+ "&prop=imageinfo&iiprop=url");
+						+ "&prop=imageinfo&iiprop=url&iiurlwidth=160");
 		URLConnection conn = url.openConnection();
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -82,7 +82,7 @@ public class ImageParsing {
 
 			if (imgData instanceof Element) {
 				Element name = (Element) imgData;
-				s = name.getAttribute("url");
+				s = name.getAttribute("thumburl");
 
 			}
 		}
