@@ -20,8 +20,9 @@ import org.xml.sax.SAXException;
 
 public class GetCategory {
 
-	public String chosenSort;
-	public String chosenDate;
+	private String chosenSort;
+	private String chosenDate;
+	private String chosenZone;
 	public ArrayList<String> sortArray = new ArrayList<String>();
 	public URL url;
 	URLConnection conn;
@@ -57,7 +58,7 @@ public class GetCategory {
 
 		url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
-						+ chosenSort + "]][[I+säsong+Z3::1912-" + chosenDate
+						+ chosenSort + "]][[I+säsong+"+chosenZone+"::1912-" + chosenDate
 						+ "-15]]|?bild");
 		conn = url.openConnection();
 
@@ -93,6 +94,10 @@ public class GetCategory {
 
 		return sortArray;
 
+	}
+
+	public void setZone(String zoneString) {
+		chosenZone = zoneString;
 	}
 
 }

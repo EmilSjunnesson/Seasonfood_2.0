@@ -64,6 +64,8 @@ public class GUI extends JFrame {
 		data = new GetCategory();
 		data.setDate(imageParse.getCurrDate());
 		imageParse.setDate(imageParse.getCurrDate());
+		data.setZone("Z3");
+		imageParse.setZone("Z3");
 
 		JButton button = new JButton("Skaldjur");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -303,12 +305,16 @@ public class GUI extends JFrame {
 												642, GroupLayout.PREFERRED_SIZE)
 										.addContainerGap()));
 		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 934, Short.MAX_VALUE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 642, Short.MAX_VALUE)
+		);
 		gl_panel.setAutoCreateGaps(true);
 		gl_panel.setAutoCreateContainerGaps(true);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(
-				Alignment.LEADING).addGap(0, 736, Short.MAX_VALUE));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(
-				Alignment.LEADING).addGap(0, 539, Short.MAX_VALUE));
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
 

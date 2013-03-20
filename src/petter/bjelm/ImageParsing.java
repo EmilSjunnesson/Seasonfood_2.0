@@ -21,6 +21,7 @@ public class ImageParsing {
 
 	private String monthText = "00";
 	private String type = "Grönsaker";
+	private String zone = "Z3";
 	private ArrayList<String> imgNamesArray = new ArrayList<String>();
 	private ArrayList<String> imgURLArray = new ArrayList<String>();
 	private Document doc;
@@ -46,7 +47,7 @@ public class ImageParsing {
 			SAXException, TransformerException {
 		URL url = new URL(
 				"http://xn--ssongsmat-v2a.nu/w/api.php?format=xml&action=ask&query=[[Kategori:"
-						+ type + "]][[I+säsong+Z3::1912-" + monthText + "-"
+						+ type + "]][[I+säsong+"+zone+"::1912-" + monthText + "-"
 						+ "15" + "]]|?bild");
 		URLConnection conn = url.openConnection();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -118,5 +119,9 @@ public class ImageParsing {
 
 		monthText = date;
 
+	}
+
+	public void setZone(String zoneString) {
+		zone = zoneString;
 	}
 }
