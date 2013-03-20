@@ -77,7 +77,7 @@ public class GUI extends JFrame {
 				buttonCounter = 0;
 				data.setCategory("Skaldjur");
 				// buttons = new JButton[0];
-				
+
 				if (buttons != null) {
 					for (i = 0; i < buttons.length; i++) {
 
@@ -99,16 +99,20 @@ public class GUI extends JFrame {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-
+				
+				if(!URLArray.isEmpty()){
 				for (int i = 0; i < URLArray.size(); i++) {
 					System.out.println(URLArray.get(i));
 				}
-
+			}else{
+				System.out.println("No items in season");
+			}
 				buttons = new JButton[anArray.size()];
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
+					buttons[i] = new JButton(
+							anArray.get(i).replace('_', ' '),
 							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
@@ -126,13 +130,12 @@ public class GUI extends JFrame {
 					if (buttonCounter == setButtonsPerRows) {
 						buttonCounter = 0;
 
-						buttons[i].setBounds(
-								(buttonWidth * buttonCounter), rowY,
-								buttonWidth, buttonHeight);
+						buttons[i].setBounds((buttonWidth * buttonCounter),
+								rowY, buttonWidth, buttonHeight);
 					} else {
 
 						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10*i), rowY,
+								(buttonWidth * buttonCounter + 10 * i), rowY,
 								buttonWidth, buttonHeight);
 					}
 
@@ -235,6 +238,107 @@ public class GUI extends JFrame {
 		buttonTwo.setHorizontalTextPosition(SwingConstants.CENTER);
 		panel = new JPanel();
 		panel.setBorder(null);
+
+		JButton buttonThree = new JButton("Kött");
+		buttonThree.setHorizontalTextPosition(SwingConstants.CENTER);
+		panel = new JPanel();
+		panel.setBorder(null);
+		buttonThree.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				rowY = 0;
+				lastRow = setButtonsPerRows;
+				rowX = 30;
+				buttonCounter = 0;
+				data.setCategory("Kött");
+				// buttons = new JButton[0];
+
+				if (buttons != null) {
+					for (i = 0; i < buttons.length; i++) {
+
+						panel.remove(buttons[i]);
+						panel.revalidate();
+						panel.repaint();
+
+					}
+				}
+
+				try {
+					anArray = data.getArray();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				try {
+					URLArray = imageParse.getURLArray("Kött");
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+				if (!URLArray.isEmpty()) {
+					for (int i = 0; i < URLArray.size(); i++) {
+						System.out.println(URLArray.get(i));
+					}
+				} else {
+					System.out.println("No items in season");
+				}
+
+				buttons = new JButton[anArray.size()];
+
+				for (i = 0; i < buttons.length; i++) {
+
+					buttons[i] = new JButton(
+							anArray.get(i).replace('_', ' '),
+							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
+					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
+					buttons[i].setForeground(Color.WHITE);
+
+					if (i == lastRow) {
+						rowY = rowY + buttonHeight;
+						lastRow = i + setButtonsPerRows;
+						// System.out.println(rowY + " Y");
+
+					} else {
+
+					}
+
+					// System.out.println(buttonCounter);
+					if (buttonCounter == setButtonsPerRows) {
+						buttonCounter = 0;
+
+						buttons[i].setBounds((buttonWidth * buttonCounter),
+								rowY, buttonWidth, buttonHeight);
+					} else {
+
+						buttons[i]
+								.setBounds(
+										(buttonWidth * buttonCounter + 10 * buttonCounter),
+										rowY, buttonWidth, buttonHeight);
+					}
+
+					buttonCounter++;
+					// System.out.println(rowX);
+					// buttons[i].setBounds((150*buttonCounter+10), rowY,
+					// buttonWidth, buttonWidth);
+
+					buttons[i].setActionCommand(anArray.get(i));
+
+					buttons[i].addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							String choice = e.getActionCommand();
+							JOptionPane.showMessageDialog(null,
+									"You have clicked: " + choice);
+						}
+					});
+
+					panel.add(buttons[i]);
+					panel.revalidate();
+					validate();
+					panel.repaint();
+				}
+
+			}
+		});
+		buttonThree.setHorizontalTextPosition(SwingConstants.CENTER);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout
 				.setHorizontalGroup(groupLayout
@@ -250,31 +354,37 @@ public class GUI extends JFrame {
 														.addComponent(
 																panel,
 																GroupLayout.DEFAULT_SIZE,
-																932,
+																GroupLayout.DEFAULT_SIZE,
 																Short.MAX_VALUE)
 														.addComponent(comboBox,
-																0, 932,
+																0, 934,
 																Short.MAX_VALUE)
 														.addGroup(
+																Alignment.TRAILING,
 																groupLayout
 																		.createSequentialGroup()
 																		.addComponent(
 																				buttonTwo,
 																				GroupLayout.DEFAULT_SIZE,
-																				457,
+																				270,
 																				Short.MAX_VALUE)
 																		.addGap(18)
 																		.addComponent(
 																				button,
-																				GroupLayout.DEFAULT_SIZE,
-																				457,
-																				Short.MAX_VALUE)))
+																				GroupLayout.PREFERRED_SIZE,
+																				341,
+																				GroupLayout.PREFERRED_SIZE)
+																		.addGap(18)
+																		.addComponent(
+																				buttonThree,
+																				GroupLayout.PREFERRED_SIZE,
+																				287,
+																				GroupLayout.PREFERRED_SIZE)))
 										.addContainerGap()));
 		groupLayout
 				.setVerticalGroup(groupLayout
-						.createParallelGroup(Alignment.LEADING)
+						.createParallelGroup(Alignment.TRAILING)
 						.addGroup(
-								Alignment.TRAILING,
 								groupLayout
 										.createSequentialGroup()
 										.addContainerGap(
@@ -285,12 +395,17 @@ public class GUI extends JFrame {
 														.createParallelGroup(
 																Alignment.BASELINE)
 														.addComponent(
+																buttonTwo,
+																GroupLayout.PREFERRED_SIZE,
+																25,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(
 																button,
 																GroupLayout.PREFERRED_SIZE,
 																25,
 																GroupLayout.PREFERRED_SIZE)
 														.addComponent(
-																buttonTwo,
+																buttonThree,
 																GroupLayout.PREFERRED_SIZE,
 																25,
 																GroupLayout.PREFERRED_SIZE))
@@ -305,14 +420,10 @@ public class GUI extends JFrame {
 												642, GroupLayout.PREFERRED_SIZE)
 										.addContainerGap()));
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 934, Short.MAX_VALUE)
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 642, Short.MAX_VALUE)
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(
+				Alignment.LEADING).addGap(0, 934, Short.MAX_VALUE));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(
+				Alignment.LEADING).addGap(0, 642, Short.MAX_VALUE));
 		gl_panel.setAutoCreateGaps(true);
 		gl_panel.setAutoCreateContainerGaps(true);
 		panel.setLayout(gl_panel);
@@ -326,7 +437,7 @@ public class GUI extends JFrame {
 				buttonCounter = 0;
 				data.setCategory("Grönsaker");
 				// buttons = new JButton[0];
-				
+
 				if (buttons != null) {
 					for (i = 0; i < buttons.length; i++) {
 
@@ -349,15 +460,20 @@ public class GUI extends JFrame {
 					e1.printStackTrace();
 				}
 
-				for (int i = 0; i < URLArray.size(); i++) {
-					System.out.println(URLArray.get(i));
+				if (!URLArray.isEmpty()) {
+					for (int i = 0; i < URLArray.size(); i++) {
+						System.out.println(URLArray.get(i));
+					}
+				} else {
+					System.out.println("No items in season");
 				}
 
 				buttons = new JButton[anArray.size()];
 
 				for (i = 0; i < buttons.length; i++) {
 
-					buttons[i] = new JButton(anArray.get(i).replace('_', ' '),
+					buttons[i] = new JButton(
+							anArray.get(i).replace('_', ' '),
 							new ImageIcon(URLImage.getURLImage(URLArray.get(i))));
 					buttons[i].setHorizontalTextPosition(SwingConstants.CENTER);
 					buttons[i].setForeground(Color.WHITE);
@@ -375,14 +491,14 @@ public class GUI extends JFrame {
 					if (buttonCounter == setButtonsPerRows) {
 						buttonCounter = 0;
 
-						buttons[i].setBounds(
-								(buttonWidth * buttonCounter), rowY,
-								buttonWidth, buttonHeight);
+						buttons[i].setBounds((buttonWidth * buttonCounter),
+								rowY, buttonWidth, buttonHeight);
 					} else {
 
-						buttons[i].setBounds(
-								(buttonWidth * buttonCounter + 10*buttonCounter), rowY,
-								buttonWidth, buttonHeight);
+						buttons[i]
+								.setBounds(
+										(buttonWidth * buttonCounter + 10 * buttonCounter),
+										rowY, buttonWidth, buttonHeight);
 					}
 
 					buttonCounter++;
